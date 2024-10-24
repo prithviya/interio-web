@@ -1,0 +1,203 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Sura:wght@400;700&display=swap");
+
+:root {
+  --src: url(https://images.unsplash.com/photo-1554620121-59e7f3f6e3a4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy);
+  --size: 60vmin;
+  --space: 8vmin;
+  --duration: 300ms;
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --bounce-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.promo {
+  position: relative;
+  cursor: pointer;
+  width: var(--size);
+  height: var(--size);
+}
+
+.title {
+  --font-size: calc(var(--size) / 8);
+
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: var(--font-size);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transform: translate(-10%, -50%);
+  transition: transform var(--duration) var(--ease-out);
+  pointer-events: none;
+}
+
+.title::after {
+  content: attr(data-cta);
+  display: inline-block;
+  margin-left: 1.5vmin;
+  font-size: calc(var(--font-size) / 3.25);
+  font-weight: 400;
+  letter-spacing: 0.125vmin;
+  opacity: 0;
+  transform: translateX(-25%);
+  transition: transform var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out);
+}
+
+.image-wrapper {
+  width: var(--size);
+  height: var(--size);
+  overflow: hidden;
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0%);
+  transition: transform var(--duration) var(--ease-out),
+    clip-path var(--duration) var(--ease-out);
+}
+
+.image-wrapper img {
+  position: relative;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(-10%);
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transform: translateZ(0);
+  transition: opacity var(--duration) var(--ease-out);
+}
+
+.promo:hover img {
+  transform: translateX(0);
+}
+
+.promo:hover .image-wrapper {
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  transform: translateX(25%);
+  transition-timing-function: var(--bounce-out);
+}
+
+.promo:hover .title {
+  transform: translate(5%, -50%);
+  transition-timing-function: var(--bounce-out);
+}
+
+.promo:hover .title::after {
+  opacity: 1;
+  transform: translateX(0);
+  transition-timing-function: var(--bounce-out);
+}
+
+.promo:hover .image-wrapper::after {
+  opacity: 1;
+} */
+/* 
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  background: #84e8dc;
+  background: -moz-linear-gradient(-45deg, #84e8dc 0%, #f4ed8b 100%);
+  background: -webkit-linear-gradient(-45deg, #84e8dc 0%, #f4ed8b 100%);
+  background: linear-gradient(135deg, #84e8dc 0%, #f4ed8b 100%);
+} */
+body
+{
+    overflow-y: hidden;
+}
+header {
+  padding: 50px 0;
+}
+header h1 {
+  color: white;
+  /* text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.4); */
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 0.4px;
+  font-family: 'Raleway', sans-serif;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  /* padding: 0 30px; */
+}
+.container .thumbex {
+  margin: 10px 20px 30px;
+  width: 100%;
+  min-width: 250px;
+  max-width: 435px;
+  height: 300px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+  /* outline: 2px solid white; */
+  outline-offset: -15px;
+  /* background-color: blue; */
+  box-shadow: 5px 10px 40px 5px rgba(0, 0, 0, 0.2);
+}
+.container .thumbex .thumbnail {
+  overflow: hidden;
+  min-width: 250px;
+  height: 300px;
+  position: relative;
+  opacity: 0.88;
+  backface-visibility: hidden;
+  transition: all 0.4s ease-out;
+}
+.container .thumbex .thumbnail img {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  height: 115%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  backface-visibility: hidden;
+}
+.container .thumbex .thumbnail span {
+  position: absolute;
+  z-index: 2;
+  top: calc(245px - 12px);
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 50px;
+  margin: 0 15px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 300;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.2px;
+  transition: all 0.3s ease-out;
+}
+.container .thumbex .thumbnail:hover {
+  backface-visibility: hidden;
+  transform: scale(1.15, 1.15);
+  opacity: 1;
+}
+.container .thumbex .thumbnail:hover span {
+  opacity: 0;
+}
+ 
